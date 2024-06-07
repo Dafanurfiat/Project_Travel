@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ($_SESSION['role'] != 0) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,10 +59,10 @@
           <img src="images/post-1.png" alt="new_place">
         </div>
         <div class="detalis">
-          <span>Europe</span>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit aut necessitatibus suscipit
-            itaque vero inventore iure, veniam incidunt hic, numquam exercitationem, nesciunt sint at? Culpa illum
-            aliquid reprehenderit vitae.</p>
+          <span>Taman Nasional Bunaken (Sulawesi Utara)</span>
+          <p>Taman Nasional Bunaken terkenal dengan keindahan bawah lautnya yang mempesona. 
+            Tempat ini adalah surga bagi para penyelam dengan terumbu karang yang spektakuler dan keanekaragaman biota laut yang luar biasa. 
+            Selain menyelam, pengunjung juga bisa menikmati snorkeling, berenang, atau sekadar bersantai di pantai yang indah.</p>
           <div class="btns">
           </div>
         </div>
@@ -64,10 +72,10 @@
           <img src="images/post-2.jpg" alt="new_place">
         </div>
         <div class="detalis">
-          <span>China</span>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit aut necessitatibus suscipit
-            itaque vero inventore iure, veniam incidunt hic, numquam exercitationem, nesciunt sint at? Culpa illum
-            aliquid reprehenderit vitae.</p>
+          <span>Tana Toraja (Sulawesi Selatan)</span>
+          <p>Tana Toraja terkenal dengan budaya unik dan tradisi pemakaman yang khas. Desa-desa adat seperti Kete Kesu menawarkan 
+            pemandangan rumah adat Tongkonan yang megah. Pengunjung bisa menyaksikan upacara Rambu Solo (pemakaman) yang merupakan 
+            atraksi budaya yang menarik dan belajar tentang tradisi serta kehidupan masyarakat Toraja.</p>
           <div class="btns">
           </div>
 
@@ -78,10 +86,10 @@
           <img src="images/post-3.jpg" alt="new_place">
         </div>
         <div class="detalis">
-          <span>Africa</span>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit aut necessitatibus suscipit
-            itaque vero inventore iure, veniam incidunt hic, numquam exercitationem, nesciunt sint at? Culpa illum
-            aliquid reprehenderit vitae.</p>
+          <span>Danau Tondano (Sulawesi Utara)</span>
+          <p>Danau Tondano merupakan danau vulkanik terbesar di Sulawesi Utara. Dikelilingi oleh pegunungan yang hijau, 
+            danau ini menawarkan pemandangan alam yang menenangkan dan udara yang segar. Di sekitar danau, terdapat banyak 
+            restoran yang menyajikan ikan segar, dan pengunjung juga bisa menikmati kegiatan memancing atau naik perahu.</p>
           <div class="btns">
           </div>
 
@@ -92,10 +100,10 @@
           <img src="images/post-4.jpg" alt="new_place">
         </div>
         <div class="detalis">
-          <span>South America</span>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit aut necessitatibus suscipit
-            itaque vero inventore iure, veniam incidunt hic, numquam exercitationem, nesciunt sint at? Culpa illum
-            aliquid reprehenderit vitae.</p>
+          <span>Wakatobi (Sulawesi Tenggara)</span>
+          <p>Wakatobi adalah kepulauan yang terdiri dari empat pulau utama: Wangi-Wangi, Kaledupa, Tomia, dan Binongko. 
+            Tempat ini adalah destinasi menyelam kelas dunia dengan terumbu karang yang sehat dan keanekaragaman hayati laut yang tinggi. 
+            Selain menyelam, pengunjung juga bisa menjelajahi keindahan pulau-pulau, pantai pasir putih, dan hutan mangrove.</p>
           <div class="btns">
           </div>
         </div>
@@ -125,49 +133,43 @@
           <div class="imgs">
             <img src="images/m-blog-1.jpg" alt="background-image">
           </div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eligendi, vel praesentium incidunt aperiam
-            inventore?</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae ullam beatae et aperiam quod commodi
-            error amet, quidem, porro magnam magni nulla nihil unde nostrum nam. Illo nesciunt eligendi ipsa deserunt
-            officiis cupiditate, ratione culpa quaerat excepturi quam sunt quibusdam sed a. Ea neque laudantium
-            tempora? Enim vero quia corrupti.</p>
-          <button>read more</button>
+          <h2>TAMAN NASIONAL BUNAKEN: SURGA BAWAH LAUT DENGAN PESONA TERUMBU KARANG</h2>
+          <p>Taman Nasional Bunaken di Sulawesi Utara adalah surga menyelam dunia dengan lebih dari 390 jenis terumbu karang dan 2.000 spesies ikan,
+             termasuk pari, hiu, dan kerapu. Destinasi ini menawarkan berbagai lokasi menyelam untuk semua tingkat keahlian, serta snorkeling, 
+             perjalanan perahu kaca, dan pantai indah. Sebagai Taman Nasional, Bunaken berkomitmen pada konservasi ekosistem lautnya, 
+             menjadikannya tempat yang wajib dikunjungi oleh pecinta alam dan penyelam.</p>
+          <button><a href="https://digitani.ipb.ac.id/taman-nasional-bunaken-surga-bawah-laut-dengan-pesona-terumbu-karang/" >Read More</a></button>
         </div>
         <div class="card">
           <div class="imgs">
             <img src="images/m-blog-2.jpg" alt="background-image">
           </div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eligendi, vel praesentium incidunt aperiam
-            inventore?</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae ullam beatae et aperiam quod commodi
-            error amet, quidem, porro magnam magni nulla nihil unde nostrum nam. Illo nesciunt eligendi ipsa deserunt
-            officiis cupiditate, ratione culpa quaerat excepturi quam sunt quibusdam sed a. Ea neque laudantium
-            tempora? Enim vero quia corrupti.</p>
-            <button>read more</button>
+          <h2>Menjelajahi Keindahan Bawah Laut Pulau Siladen, Surga Tersembunyi di Sulawesi Utara</h2>
+          <p>Pulau Siladen di Sulawesi Utara adalah destinasi tersembunyi yang menawarkan keindahan alam bawah laut dan pantai eksotis. 
+            Terletak di sebelah timur Pulau Bunaken, pulau ini dapat dicapai dengan perahu dari Pelabuhan Manado dalam 30-40 menit. 
+            Pulau Siladen menyuguhkan air jernih, pasir putih lembut, dan terumbu karang alami dengan berbagai spesies ikan cantik. 
+            Pengunjung dapat menikmati snorkeling, diving, serta bersantai di pantai yang tenang. Tersedia berbagai akomodasi mulai dari resort mewah hingga homestay sederhana. 
+            Pulau ini juga terkenal dengan matahari terbenam yang menakjubkan, menjadikannya destinasi sempurna untuk liburan dan bersantai.</p>
+            <button><a href="https://manadopost.jawapos.com/kapol/28613602/menjelajahi-keindahan-bawah-laut-pulau-siladen-surga-tersembunyi-di-sulawesi-utara" >Read More</a></button>
         </div>
         <div class="card">
           <div class="imgs">
             <img src="images/m-blog-3.jpg" alt="background-image">
           </div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eligendi, vel praesentium incidunt aperiam
-            inventore?</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae ullam beatae et aperiam quod commodi
-            error amet, quidem, porro magnam magni nulla nihil unde nostrum nam. Illo nesciunt eligendi ipsa deserunt
-            officiis cupiditate, ratione culpa quaerat excepturi quam sunt quibusdam sed a. Ea neque laudantium
-            tempora? Enim vero quia corrupti.</p>
-            <button>read more</button>
+          <h2>Danau Tondano, Terluas di Sulawesi Utara</h2>
+          <p>Inilah danau terluas di Sulawesi Utara. Danau ini berada di wilayah Tondano. 
+            Menuju ke danau ini membutuhkan waktu 50 menit dengan jarak tempuh mencapai 40 km dari Kota Manado.</p>
+            <button><a href="https://indonesiakaya.com/pustaka-indonesia/danau-tondano-terluas-di-sulawesi-utara/" >Read More</a></button>
         </div>
         <div class="card">
           <div class="imgs">
             <img src="images/m-blog-4.png" alt="background-image">
           </div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eligendi, vel praesentium incidunt aperiam
-            inventore?</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae ullam beatae et aperiam quod commodi
-            error amet, quidem, porro magnam magni nulla nihil unde nostrum nam. Illo nesciunt eligendi ipsa deserunt
-            officiis cupiditate, ratione culpa quaerat excepturi quam sunt quibusdam sed a. Ea neque laudantium
-            tempora? Enim vero quia corrupti.</p>
-            <button>read more</button>
+          <h2>Air Terjun Tumimperas, Surga Tersembunyi Nan Eksotis di Tomohon</h2>
+          <p>Air Terjun Tumimperas menjadi tempat berlibur wajib bagi wisatawan yang berada di Sulawesi Utara. 
+            Kondisi sekitar air terjun masih sangat terjaga keasriannya, hal ini bisa dilihat dari jernihnya air yang mengalir, 
+            bersihnya udara di sekitar air terjun dan lingkungan yang bersih tentunya.</p>
+            <button><a href="https://www.celebes.co/air-terjun-tumimperas-tomohon" >Read More</a></button>
         </div>
       </div>
       <div class="container-side">
@@ -257,9 +259,10 @@
           </div>
           <div class="detalis">
             <h2>Daffa Nur Fiat</h2>
-            <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit aut necessitatibus suscipit
-              itaque vero inventore iure, veniam incidunt hic, numquam exercitationem, nesciunt sint at? Culpa illum
-              aliquid reprehenderit vitae.</article>
+            <article>Haii, namaku Daffa, seorang mahasiswa informatika yang sehari-hari bergelut dengan kode dan algoritma. 
+              Meski terlihat sibuk, jangan salah, aku ini bucin berat. Tiap kali bertemu kamu, 
+              aku merasa seperti menemukan bug yang selama ini kucari—sebab dengan memilikimu, 
+              hidupku jadi sempurna tanpa perlu debug lagi.</article>
             <div class="btns">
             </div>
           </div>

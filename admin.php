@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ($_SESSION['role'] != 1) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,16 +21,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="admin.html" class="logo">
+        <a href="admin.php" class="logo">
             <div class="logo-name"><span>Tra</span>veler</div>
         </a>
         <ul class="side-menu">
-            <li><a href="admin.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="content.html"><i class='bx bx-message-square-dots'></i>Content</a></li>
+            <li><a href="admin.php"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="content.php"><i class='bx bx-message-square-dots'></i>Content</a></li>
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
+                <a href="login.php" class="logout">
                     <i class='bx bx-log-out-circle'></i>
                     Logout
                 </a>
@@ -101,7 +109,7 @@
                     <div class="header">
                         <i class='bx bxs-plane-alt'></i>
                         <h3>Destination</h3>
-                        <a href='content.html' class='bx bx-plus'></a>
+                        <a href='content.php' class='bx bx-plus'></a>
                     </div>
                     <table>
                         <thead>
