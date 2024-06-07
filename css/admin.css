@@ -169,6 +169,63 @@ body{
     color: var(--danger);
 }
 
+.delete-button {
+    background-color: red; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+.delete-button:hover {
+    background-color: darkred; 
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload label {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .custom-file-upload label:hover {
+    background-color: #45a049;
+  }
+
+  .custom-submit-button {
+    background-color: #0d14de; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+  }
+  
+  .custom-submit-button:hover {
+    background-color: #2b40df; 
+  }
+
+
 .content{
     position: relative;
     width: calc(100% - 230px);
