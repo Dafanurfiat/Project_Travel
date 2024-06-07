@@ -1,9 +1,16 @@
 <?php
+
 session_start();
+include('config.php');
 if ($_SESSION['role'] != 1) {
     header("Location: login.php");
     exit();
 }
+$query1 = "SELECT * FROM tbl_destination";
+$result1= $conn->query($query1);
+$query = "SELECT * FROM tbl_artikel";
+$result = $conn->query($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -121,14 +128,15 @@ if ($_SESSION['role'] != 1) {
                         </thead>
                         <tbody>
                             <tr>
+                            <?php while ($row1= $result1->fetch_assoc()): ?>
                                 <td>
-                                    <img src="images/11.jpg">
+                                    <img src="images/<?php echo $row1['foto']; ?>">
                                 </td>
-                                <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga voluptas illum molestias aliquam
-                                    reprehenderit, sunt veniam ut rem corrupti consequuntur dicta quasi, nostrum nisi. Vero in dolorum perferendis,
-                                    commodi soluta modi nulla sit nam alias nisi! Eum, ab incidunt?</td>
-                                <td><button class="delete-button">Delete</button></td>
+                                <td><?php echo $row1['artikel']; ?></td>
+                                <td><button class="delete-button" onclick="deleted(<?php echo $row1['id']; ?>)">Delete</button></td>
                             </tr>
+                            <?php endwhile; ?>
+
                             <tr>
                                 <td>
                                     <img src="images/profile-1.jpg">
@@ -208,5 +216,17 @@ if ($_SESSION['role'] != 1) {
 
     <script src="js/scriptadmin.js"></script>
 </body>
+<script>
+        function updated(recipeId) {
+            // Redirect ke halaman form update dengan ID resep
+            window.location.href = 'formupdate.php?id=' + recipeId;
+        }
 
+        function deleted(recipeId) {
+            if (confirm('Apakah Anda yakin ingin menghapus resep ini?')) {
+                // Redirect ke file delete dengan ID resep
+                window.location.href = 'deleteDestination.php?id=' + recipeId;
+            }
+        }
+    </script>
 </html>

@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+include('config.php');
+if ($_SESSION['role'] != 1) {
+    header("Location: login.php");
+    exit();
+}
+$query1 = "SELECT * FROM tbl_destination";
+$result1= $conn->query($query1);
+
+$query = "SELECT * FROM tbl_artikel";
+$result = $conn->query($query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,11 +52,11 @@
         <!-- Navbar -->
         <nav>
             <i class='bx bx-menu'></i>
-            <form action="#">
+            <form action="#" method="post" enctype="multipart/form-data">
                 <div class="form-input">
                     <button class="search-btn" type="submit"></button>
                 </div>
-            </form>
+                </form>
             <input type="checkbox" id="theme-toggle" hidden>
             <label for="theme-toggle" class="theme-toggle"></label>
             <a href="#" class="profile">
@@ -63,6 +79,7 @@
                     <div class="header">
                         <i class='bx bx-receipt'></i>
                         <h3>Add Destination</h3>
+                        <form method="post" action="submit.php"enctype="multipart/form-data">
                     </div>
                     <table>
                         <thead>
@@ -84,6 +101,7 @@
                             <tr>
                                 <td><button type="submit" class="custom-submit-button">Submit</button></td>
                             </tr>
+</form>
                         </tbody>
                     </table>
                 </div>
