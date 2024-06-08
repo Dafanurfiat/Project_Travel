@@ -2,7 +2,7 @@
 session_start();
 require 'config.php'; // Menghubungkan ke database
 
-$target_dir = "uploads/";
+$target_dir = "images/";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle destination submission
