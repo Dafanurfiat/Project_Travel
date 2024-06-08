@@ -91,11 +91,11 @@ $result = $conn->query($query);
                         </tr>
                         <tr>
                             <td>Title</td>
-                            <td><input type="text" name="judul"></td>
+                            <td><textarea type="text" name="judul" placeholder="Write you title ..." style="width:800px; height:300px;"></textarea></td>
                         </tr>
                         <tr>
                             <td>Article</td>
-                            <td><input type="text" name="artikel"></td>
+                            <td><textarea type="text" name="artikel" placeholder="Write you article ..." style="width:800px; height:300px;"></textarea></td>
                         </tr>
                         <tr>
                             <td><button type="submit" name="submit_destination" class="custom-submit-button">Submit</button></td>
@@ -125,15 +125,15 @@ $result = $conn->query($query);
                         </tr>
                         <tr>
                             <td>Title</td>
-                            <td><input type="text" name="judul1"></td>
+                            <td><textarea type="text" name="judul1" placeholder="Write you title ..." style="width:800px; height:300px;"></textarea></td>
                         </tr>
                         <tr>
                             <td>Article</td>
-                            <td><input type="text" name="artikel1"></td>
+                            <td><textarea type="text" name="artikel1" placeholder="Write you article ..." style="width:800px; height:300px;"></textarea></td>
                         </tr>
                         <tr>
                             <td>Link</td>
-                            <td><input type="text" name="link1"></td>
+                            <td><textarea type="text" name="link1" placeholder="Write you link ..." style="width:800px; height:300px;"></textarea></td>
                         </tr>
                         <tr>
                             <td><button type="submit" name="submit_article" class="custom-submit-button">Submit</button></td>
