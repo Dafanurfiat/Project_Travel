@@ -11,7 +11,7 @@ $query_sql = "INSERT INTO tbl_user (fullname, username, email, password)
             VALUES ('$fullname', '$username', '$email', '$password')";
 
 if (mysqli_query($conn, $query_sql)){
-    header("Location: login.html");
+    header("Location: login.php");
 } else {
     echo "Pendaftaran Gagal: " . mysqli_error($conn);
 }

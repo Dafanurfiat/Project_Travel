@@ -10,6 +10,10 @@ $result1= $conn->query($query1);
 $query = "SELECT * FROM tbl_artikel";
 $result = $conn->query($query);
 
+$query_latest = "SELECT * FROM tbl_destination ORDER BY id DESC LIMIT 1";
+$result_latest = $conn->query($query_latest);
+$latest_destination = $result_latest->fetch_assoc();
+
 ?>
 
 <!DOCTYPE html>
@@ -60,129 +64,85 @@ $result = $conn->query($query);
   <div class="category" id="category">
     <h2 class="shape">Destination</h2>
     <div class="container">
-    <?php while ($row1= $result1->fetch_assoc()): ?>
-      <div class="card">
-        <div class="imgs">
-          <img src="images/<?php echo $row1['foto']; ?>" alt="new_place">
+        <?php while ($row1 = $result1->fetch_assoc()): ?>
+        <div class="card">
+            <div class="imgs">
+                <img src="images/<?php echo htmlspecialchars($row1['foto']); ?>" alt="new_place">
+            </div>
+            <div class="detalis">
+                <span><?php echo htmlspecialchars($row1['judul']); ?></span>
+                <p><?php echo nl2br(htmlspecialchars($row1['artikel'])); ?></p>
+            </div>
         </div>
-        
-        <div class="detalis">
-          <span><?php echo $row1['judul']; ?></span>
-          <p>T<?php echo $row1['artikel']; ?></p>
-          <div class="btns">
-          </div>
-        </div>
-      </div>
-      <?php endwhile; ?>
-      
+        <?php endwhile; ?>
     </div>
-  </div>
-  <!-- end category -->
-  <!-- start update -->
-  <div class="update" id="new">
+</div>
+<!-- end category -->
+
+<!-- start update -->
+<div class="update" id="new">
     <h2 class="shape">update</h2>
     <div class="container">
-        <img src="images/Background-image.png" alt="new-place">
-      <div class="detalis">
-        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates suscipit illum ex quos rerum aut,
-          incidunt itaque aperiam pariatur facilis adipisci tenetur porro quia blanditiis id mollitia, facere ut
-          excepturi odit ratione? Omnis nobis odio voluptatem consectetur officia, esse molestiae soluta veritatis
-          aliquam architecto minus, vero quia reiciendis excepturi commodi?</span>
-      </div>
+        <?php if ($latest_destination): ?>
+        <img src="images/<?php echo htmlspecialchars($latest_destination['foto']); ?>" alt="new-place">
+        <div class="detalis">
+            <span><?php echo htmlspecialchars($latest_destination['judul']); ?></span>
+            <p><?php echo nl2br(htmlspecialchars($latest_destination['artikel'])); ?></p>
+        </div>
+        <?php else: ?>
+        <p>No New Destinations.</p>
+        <?php endif; ?>
     </div>
-  </div>
+</div>
   <!-- end update -->
   <div class="page" id="page">
     <h2 class="shape">article</h2>
     <div class="container">
-      <div class="container-card">
-        
-        <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="card">
-          <div class="imgs">
-            <img src="images/<?php echo $row['foto']; ?>" alt="background-image">
-          </div>
-          <h2><?php echo $row['judul']; ?></h2>
-          <p><?php echo $row['artikel']; ?></p>
-            <button><a href="<?php echo $row['link']; ?>" >Read More</a></button>
-        </div>
-        <?php endwhile; ?>
-      </div>
-      <div class="container-side">
-        <div class="sort-by">
-          <div class="logo-side">
-        </div>
-        <div class="container-side-card">
-          <h2 id="archive">archive</h2>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-1.png" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-2.jpg" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-3.png" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-4.jpg" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-3.png" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-3.png" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-3.png" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-          <div class="card">
-            <a href="">
-              <img src="./images/side-3.png" alt="place">
-              <p>south sinai</p>
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempora voluptatum facilis
-                totam. Perferendis omnis ad maiores tempora deserunt sunt.</span>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
+        <div class="container-card">
+            <?php 
+            $counter = 0; // Inisialisasi penghitung
+            while ($row = $result->fetch_assoc()): 
+                $counter++;
+                if ($counter <= 4): 
+            ?>
+            <div class="card">
+                <div class="imgs">
+                    <img src="images/<?php echo htmlspecialchars($row['foto']); ?>" alt="background-image">
+                </div>
+                <h2><?php echo htmlspecialchars($row['judul']); ?></h2>
+                <p><?php echo nl2br(htmlspecialchars($row['artikel'])); ?></p>
+                <button><a href="<?php echo htmlspecialchars($row['link']); ?>">Read More</a></button>
+            </div>
+            <?php 
+                else: 
+                    if ($counter == 5): // Tampilkan judul arsip saat artikel ke-5 dimulai
+            ?>
+            </div> <!-- Tutup .container-card -->
+            <div class="container-side">
+                <div class="sort-by">
+                    <div class="logo-side">
+                    </div>
+                    <div class="container-side-card">
+                        <h2 id="archive">archive</h2>
+            <?php endif; ?>
+            <div class="card">
+                <a href="<?php echo htmlspecialchars($row['link']); ?>">
+                    <img src="images/<?php echo htmlspecialchars($row['foto']); ?>" alt="place">
+                    <p><?php echo htmlspecialchars($row['judul']); ?></p>
+                    <span><?php echo nl2br(htmlspecialchars(substr($row['artikel'], 0, 100))); ?>...</span>
+                </a>
+            </div>
+            <?php endif; ?>
+            <?php endwhile; ?>
+            <?php if ($counter > 4): // Tutup div jika ada artikel di archive ?>
+                    </div> <!-- Tutup .container-side-card -->
+                </div> <!-- Tutup .sort-by -->
+            </div> <!-- Tutup .container-side -->
+            <?php endif; ?>
+        </div> <!-- Tutup .container-card -->
+    </div> <!-- Tutup .container -->
+</div> <!-- Tutup .page -->
+
   <!-- start page -->
   <!-- start about us -->
   <div class="about-us" id="about us">

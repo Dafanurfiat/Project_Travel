@@ -8,8 +8,13 @@ if ($_SESSION['role'] != 1) {
 }
 $query1 = "SELECT * FROM tbl_destination";
 $result1= $conn->query($query1);
+$total_destinations = $result1->num_rows;
 $query = "SELECT * FROM tbl_artikel";
 $result = $conn->query($query);
+$total_articles = $result->num_rows;
+$query2 = "SELECT * FROM tbl_user";
+$result2 = $conn->query($query2);
+$total_users = $result2->num_rows;
 
 ?>
 
@@ -73,39 +78,31 @@ $result = $conn->query($query);
                 </div>
             </div>
 
-            <!-- Insights -->
-            <ul class="insights">
+             <!-- Insights -->
+             <ul class="insights">
                 <li>
-                    <i class='bx bx-calendar-check'></i>
+                    <i class='bx bx bxs-plane-alt'></i>
                     <span class="info">
                         <h3>
-                            14
+                            <?php echo $total_destinations; ?>
                         </h3>
-                        <p>Page</p>
+                        <p>Total Destination</p>
                     </span>
                 </li>
-                <li><i class='bx bx-show-alt'></i>
+                <li><i class='bx bx-receipt'></i>
                     <span class="info">
                         <h3>
-                            3,944
+                            <?php echo $total_articles; ?>
                         </h3>
-                        <p>Site Visit</p>
+                        <p>Total Article</p>
                     </span>
                 </li>
-                <li><i class='bx bx-line-chart'></i>
+                <li><i class='bx bx-user'></i>
                     <span class="info">
                         <h3>
-                            14,721
+                            <?php echo $total_users; ?>
                         </h3>
-                        <p>Searches</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-dollar-circle'></i>
-                    <span class="info">
-                        <h3>
-                            $6,742
-                        </h3>
-                        <p>Total Sales</p>
+                        <p>Total Users</p>
                     </span>
                 </li>
             </ul>
@@ -122,8 +119,9 @@ $result = $conn->query($query);
                         <thead>
                             <tr>
                                 <th>Photo</th>
-                                <th>Artikel</th>
-                                <th>Aksi</th>
+                                <th>Title</th>
+                                <th>Article</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -132,25 +130,11 @@ $result = $conn->query($query);
                                 <td>
                                     <img src="images/<?php echo $row1['foto']; ?>">
                                 </td>
+                                <td><?php echo $row1['judul']; ?></td>
                                 <td><?php echo $row1['artikel']; ?></td>
-                                <td><button class="delete-button" onclick="deleted(<?php echo $row1['id']; ?>)">Delete</button></td>
+                                <td><button class="delete-button" onclick="deleteddestination(<?php echo $row1['id']; ?>)">Delete</button></td>
                             </tr>
                             <?php endwhile; ?>
-
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><button class="delete-button">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><button class="delete-button">Delete</button></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -159,51 +143,32 @@ $result = $conn->query($query);
                     <div class="orders">
                         <div class="header">
                             <i class='bx bx-receipt'></i>
-                            <h3>Artikel</h3>
-                            <a href='content.html' class='bx bx-plus'></a>
+                            <h3>Article</h3>
+                            <a href='content.php' class='bx bx-plus'></a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
                                     <th>Photo</th>
-                                    <th>Artikel</th>
+                                    <th>Title</th>
+                                    <th>Article</th>
                                     <th>Link</th>
-                                    <th>Aksi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                <?php while ($row= $result->fetch_assoc()): ?>
                                     <td>
-                                        <img src="images/profile-1.jpg">
+                                        <img src="images/<?php echo $row['foto']; ?>">
                                     </td>
-                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga voluptas illum molestias aliquam
-                                        reprehenderit, sunt veniam ut rem corrupti consequuntur dicta quasi, nostrum nisi. Vero in dolorum perferendis,
-                                        commodi soluta modi nulla sit nam alias nisi! Eum, ab incidunt?</td>
-                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga voluptas illum molestias aliquam
-                                        reprehenderit, sunt veniam ut rem corrupti consequuntur dicta quasi, nostrum nisi. Vero in dolorum perferendis,
-                                        commodi soluta modi nulla sit nam alias nisi! Eum, ab incidunt?</td>
-                                        <td><button class="delete-button">Delete</button></td>
+                                    <td><?php echo $row['judul']; ?>>
+                                </td>
+                                    <td><?php echo $row['artikel']; ?></td></td>
+                                    <td><?php echo $row['link']; ?></td></td>
+                                        <td><button class="delete-button" onclick="deletedartikel(<?php echo $row['id']; ?>)">Delete</button></td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <img src="images/profile-1.jpg">
-                                    </td>
-                                    <td>14-08-2023</td>
-                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga voluptas illum molestias aliquam
-                                        reprehenderit, sunt veniam ut rem corrupti consequuntur dicta quasi, nostrum nisi. Vero in dolorum perferendis,
-                                        commodi soluta modi nulla sit nam alias nisi! Eum, ab incidunt?</td>
-                                    <td><button class="delete-button">Delete</button></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="images/profile-1.jpg">
-                                    </td>
-                                    <td>14-08-2023</td>
-                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga voluptas illum molestias aliquam
-                                        reprehenderit, sunt veniam ut rem corrupti consequuntur dicta quasi, nostrum nisi. Vero in dolorum perferendis,
-                                        commodi soluta modi nulla sit nam alias nisi! Eum, ab incidunt?</td>
-                                    <td><button class="delete-button">Delete</button></td>
-                                </tr>
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
@@ -222,10 +187,16 @@ $result = $conn->query($query);
             window.location.href = 'formupdate.php?id=' + recipeId;
         }
 
-        function deleted(recipeId) {
-            if (confirm('Apakah Anda yakin ingin menghapus resep ini?')) {
+        function deleteddestination(recipeId) {
+            if (confirm('Apakah Anda yakin ingin menghapus destination ini?')) {
                 // Redirect ke file delete dengan ID resep
                 window.location.href = 'deleteDestination.php?id=' + recipeId;
+            }
+        }
+        function deletedartikel(recipeId) {
+            if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
+                // Redirect ke file delete dengan ID resep
+                window.location.href = 'deleteArtikel.php?id=' + recipeId;
             }
         }
     </script>

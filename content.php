@@ -75,74 +75,75 @@ $result = $conn->query($query);
             </div>
 
             <div class="bottom-data">
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i>
-                        <h3>Add Destination</h3>
-                        <form method="post" action="submit.php"enctype="multipart/form-data">
-                    </div>
-                    <table>
-                        <thead>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Photo
-                                </td>
-                                <td class="custom-file-upload"><input type="file" name="gambar" id="gambar" />
-                                    <label for="gambar">Choose File</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Article
-                                </td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td><button type="submit" class="custom-submit-button">Submit</button></td>
-                            </tr>
-</form>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="orders">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Add Destination</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                        <form method="post" action="submit.php" enctype="multipart/form-data">
+                            <td>Photo</td>
+                            <td class="custom-file-upload">
+                                <input type="file" name="gambar" id="gambar" />
+                                <label for="gambar">Choose File</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td><input type="text" name="judul"></td>
+                        </tr>
+                        <tr>
+                            <td>Article</td>
+                            <td><input type="text" name="artikel"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" name="submit_destination" class="custom-submit-button">Submit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
 
-            <div class="bottom-data">
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i>
-                        <h3>Add Article</h3>
-                    </div>
-                    <table>
-                        <thead>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Photo
-                                </td>
-                                <td class="custom-file-upload"><input type="file" name="gambar" id="gambar" />
-                                    <label for="gambar">Choose File</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Article
-                                </td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Link
-                                </td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td><button type="submit" class="custom-submit-button">Submit</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<!-- Form for adding articles -->
+<div class="bottom-data">
+    <div class="orders">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Add Article</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                        <form method="post" action="submit.php" enctype="multipart/form-data">
+                            <td>Photo</td>
+                            <td class="custom-file-upload">
+                                <input type="file" name="gambar" id="gambar1" />
+                                <label for="gambar1">Choose File</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td><input type="text" name="judul1"></td>
+                        </tr>
+                        <tr>
+                            <td>Article</td>
+                            <td><input type="text" name="artikel1"></td>
+                        </tr>
+                        <tr>
+                            <td>Link</td>
+                            <td><input type="text" name="link1"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" name="submit_article" class="custom-submit-button">Submit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
 
         </main>
 
@@ -150,5 +151,20 @@ $result = $conn->query($query);
 
     <script src="js/scriptadmin.js"></script>
 </body>
+<script>
+    function showPopup(message, actionFunction, recipeId) {
+        if (confirm(message)) {
+            actionFunction(recipeId);
+        }
+    }
 
+    function handleSubmission(type, recipeId) {
+        var message = 'Data telah ditambahkan. Apakah Anda ingin melanjutkan?';
+        if (type === 'destination') {
+            showPopup(message, updated, recipeId);
+        } else if (type === 'article') {
+            showPopup(message, updated, recipeId);
+        }
+    }
+</script>
 </html>
