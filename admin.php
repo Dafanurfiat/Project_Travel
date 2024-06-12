@@ -78,8 +78,8 @@ $total_users = $result2->num_rows;
                 </div>
             </div>
 
-             <!-- Insights -->
-             <ul class="insights">
+            <!-- Insights -->
+            <ul class="insights">
                 <li>
                     <i class='bx bx bxs-plane-alt'></i>
                     <span class="info">
@@ -126,13 +126,23 @@ $total_users = $result2->num_rows;
                         </thead>
                         <tbody>
                             <tr>
-                            <?php while ($row1= $result1->fetch_assoc()): ?>
+                                <?php while ($row1 = $result1->fetch_assoc()): ?>
+                            <tr>
+                                <td><img src="images/<?php echo $row1['foto']; ?>" alt="Destination Photo"></td>
                                 <td>
-                                    <img src="images/<?php echo $row1['foto']; ?>">
+                                    <?php echo $row1['judul']; ?>
                                 </td>
-                                <td><?php echo $row1['judul']; ?></td>
-                                <td><?php echo $row1['artikel']; ?></td>
-                                <td><button class="delete-button" onclick="deleteddestination(<?php echo $row1['id']; ?>)">Delete</button></td>
+                                <td>
+                                    <?php echo $row1['artikel']; ?>
+                                </td>
+                                <td>
+                                    <button class="delete-button"
+                                        onclick="deleteddestination(<?php echo $row1['id']; ?>)">Delete</button>
+                                </td>
+                                <td>
+                                    <button class="button-edit"
+                                        onclick="location.href='edit.php?type=destination&id=<?php echo $row1['id']; ?>'">Edit</button>
+                                </td>
                             </tr>
                             <?php endwhile; ?>
                         </tbody>
@@ -158,46 +168,50 @@ $total_users = $result2->num_rows;
                             </thead>
                             <tbody>
                                 <tr>
-                                <?php while ($row= $result->fetch_assoc()): ?>
+                                    <?php while ($row = $result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><img src="images/<?php echo $row['foto']; ?>" alt="Article Photo"></td>
                                     <td>
-                                        <img src="images/<?php echo $row['foto']; ?>">
+                                        <?php echo $row['judul']; ?>
                                     </td>
-                                    <td><?php echo $row['judul']; ?>>
-                                </td>
-                                    <td><?php echo $row['artikel']; ?></td></td>
-                                    <td><?php echo $row['link']; ?></td></td>
-                                        <td><button class="delete-button" onclick="deletedartikel(<?php echo $row['id']; ?>)">Delete</button></td>
+                                    <td>
+                                        <?php echo $row['artikel']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['link']; ?>
+                                    </td>
+                                    <td>
+                                        <button class="delete-button"
+                                            onclick="deletedartikel(<?php echo $row['id']; ?>)">Delete</button>
+                                    </td>
+                                    <td>
+                                        <button class="button-edit"
+                                            onclick="location.href='edit.php?type=article&id=<?php echo $row['id']; ?>'">Edit</button>
+                                    </td>
                                 </tr>
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
-
-            </div>
-
+                </div>
         </main>
-
     </div>
-
     <script src="js/scriptadmin.js"></script>
 </body>
 <script>
-        function updated(recipeId) {
-            // Redirect ke halaman form update dengan ID resep
-            window.location.href = 'formupdate.php?id=' + recipeId;
-        }
 
-        function deleteddestination(recipeId) {
-            if (confirm('Apakah Anda yakin ingin menghapus destination ini?')) {
-                // Redirect ke file delete dengan ID resep
-                window.location.href = 'deleteDestination.php?id=' + recipeId;
-            }
+    function deleteddestination(recipeId) {
+        if (confirm('Apakah Anda yakin ingin menghapus destination ini?')) {
+            // Redirect ke file delete dengan ID resep
+            window.location.href = 'deleteDestination.php?id=' + recipeId;
         }
-        function deletedartikel(recipeId) {
-            if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
-                // Redirect ke file delete dengan ID resep
-                window.location.href = 'deleteArtikel.php?id=' + recipeId;
-            }
+    }
+    function deletedartikel(recipeId) {
+        if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
+            // Redirect ke file delete dengan ID resep
+            window.location.href = 'deleteArtikel.php?id=' + recipeId;
         }
-    </script>
+    }
+</script>
+
 </html>

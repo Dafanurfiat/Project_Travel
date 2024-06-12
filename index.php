@@ -41,6 +41,9 @@ $latest_destination = $result_latest->fetch_assoc();
         <li><a href="#page">article</a></li>
         <li><a href="#archive">archive</a></li>
         <li><a href="#about us">about us</a></li>
+        <li><a href="login.php" class="logout">
+          <i class='bx bx-log-out-circle'></i>Logout</a>
+        </li>
       </ul>
       <div class="bar">
         <div></div>
