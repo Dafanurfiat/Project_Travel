@@ -200,16 +200,16 @@ $total_users = $result2->num_rows;
 </body>
 <script>
 
-    function deleteddestination(recipeId) {
+    function deleteddestination(Id) {
         if (confirm('Apakah Anda yakin ingin menghapus destination ini?')) {
             // Redirect ke file delete dengan ID resep
-            window.location.href = 'deleteDestination.php?id=' + recipeId;
+            window.location.href = 'deleteDestination.php?id=' + Id;
         }
     }
-    function deletedartikel(recipeId) {
+    function deletedartikel(Id) {
         if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
             // Redirect ke file delete dengan ID resep
-            window.location.href = 'deleteArtikel.php?id=' + recipeId;
+            window.location.href = 'deleteArtikel.php?id=' + Id;
         }
     }
 </script>

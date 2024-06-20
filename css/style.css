@@ -72,9 +72,7 @@ header ul li::after {
   bottom: -26px;
   transform: translate(-50%);
 }
-/* ############################################### */
-/* tranistion dosnot work */
-/* ############################################### */
+
 header ul li:hover::after {
   display: inline;
   width: 120%;

@@ -11,8 +11,6 @@ bars.addEventListener("click", () => {
   }
 });
 
-
-
 // scroll button in 30
 
 const scrollTopBtn = document.querySelector('#scroll-top-btn');

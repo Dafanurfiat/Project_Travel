@@ -75,75 +75,75 @@ $result = $conn->query($query);
             </div>
 
             <div class="bottom-data">
-    <div class="orders">
-        <div class="header">
-            <i class='bx bx-receipt'></i>
-            <h3>Add Destination</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                        <form method="post" action="submit.php" enctype="multipart/form-data">
-                            <td>Photo</td>
-                            <td class="custom-file-upload">
-                                <input type="file" name="gambar" id="gambar" />
-                                <label for="gambar">Choose File</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Title</td>
-                            <td><textarea type="text" name="judul" placeholder="Write you title ..." style="width:800px; height:300px;"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>Article</td>
-                            <td><textarea type="text" name="artikel" placeholder="Write you article ..." style="width:800px; height:300px;"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td><button type="submit" name="submit_destination" class="custom-submit-button">Submit</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
-    </div>
-</div>
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-receipt'></i>
+                        <h3>Add Destination</h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form method="post" action="submit.php" enctype="multipart/form-data">
+                                        <td>Photo</td>
+                                        <td class="custom-file-upload">
+                                            <input type="file" name="gambar" id="gambar" />
+                                            <label for="gambar">Choose File</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Title</td>
+                                        <td><textarea type="text" name="judul" placeholder="Write you title ..." style="width:800px; height:300px;"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Article</td>
+                                        <td><textarea type="text" name="artikel" placeholder="Write you article ..." style="width:800px; height:300px;"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button onclick="TambahDestination(123)" type="submit" name="submit_destination" class="custom-submit-button">Submit</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<!-- Form for adding articles -->
-<div class="bottom-data">
-    <div class="orders">
-        <div class="header">
-            <i class='bx bx-receipt'></i>
-            <h3>Add Article</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                        <form method="post" action="submit.php" enctype="multipart/form-data">
-                            <td>Photo</td>
-                            <td class="custom-file-upload">
-                                <input type="file" name="gambar" id="gambar1" />
-                                <label for="gambar1">Choose File</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Title</td>
-                            <td><textarea type="text" name="judul1" placeholder="Write you title ..." style="width:800px; height:300px;"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>Article</td>
-                            <td><textarea type="text" name="artikel1" placeholder="Write you article ..." style="width:800px; height:300px;"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>Link</td>
-                            <td><textarea type="text" name="link1" placeholder="Write you link ..." style="width:800px; height:300px;"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td><button type="submit" name="submit_article" class="custom-submit-button">Submit</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
-    </div>
-</div>
+            <!-- Form for adding articles -->
+            <div class="bottom-data">
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-receipt'></i>
+                        <h3>Add Article</h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form method="post" action="submit.php" enctype="multipart/form-data">
+                                        <td>Photo</td>
+                                        <td class="custom-file-upload">
+                                            <input type="file" name="gambar" id="gambar1" />
+                                            <label for="gambar1">Choose File</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Title</td>
+                                        <td><textarea type="text" name="judul1" placeholder="Write you title ..." style="width:800px; height:300px;"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Article</td>
+                                        <td><textarea type="text" name="artikel1" placeholder="Write you article ..." style="width:800px; height:300px;"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Link</td>
+                                        <td><textarea type="text" name="link1" placeholder="Write you link ..." style="width:800px; height:300px;"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button onclick="TambahArtikel(123)" type="submit" name="submit_article" class="custom-submit-button">Submit</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </main>
 
@@ -152,18 +152,16 @@ $result = $conn->query($query);
     <script src="js/scriptadmin.js"></script>
 </body>
 <script>
-    function showPopup(message, actionFunction, recipeId) {
-        if (confirm(message)) {
-            actionFunction(recipeId);
+    function TambahArtikel(Id) {
+        if (confirm('Apakah Anda yakin ingin menambahkan artikel ini?')) {
+            // Redirect ke file delete dengan ID resep
+            window.location.href = 'TambahArtikel.php?id=' + Id;
         }
     }
-
-    function handleSubmission(type, recipeId) {
-        var message = 'Data telah ditambahkan. Apakah Anda ingin melanjutkan?';
-        if (type === 'destination') {
-            showPopup(message, updated, recipeId);
-        } else if (type === 'article') {
-            showPopup(message, updated, recipeId);
+    function TambahDestination(Id) {
+        if (confirm('Apakah Anda yakin ingin menambahkan artikel ini?')) {
+            // Redirect ke file delete dengan ID resep
+            window.location.href = 'TambahDestination.php?id=' + Id;
         }
     }
 </script>
